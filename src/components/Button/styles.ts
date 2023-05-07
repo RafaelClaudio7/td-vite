@@ -3,10 +3,12 @@ import { colors } from "../../constants/colors";
 
 interface IButtonProps {
   outlined?: boolean;
+  size?: "sm" | "md" | "lg";
 }
 
 export const Button = styled.button`
-  padding: 10px 40px;
+  padding: ${({ size }: IButtonProps) =>
+    size === "sm" ? "8px 30px" : size === "md" ? "10px 32px" : "12px 36px"};
   background-color: ${({ outlined }: IButtonProps) =>
     outlined ? colors.black : colors.green};
   color: ${colors.white};
@@ -15,10 +17,12 @@ export const Button = styled.button`
   color: ${colors.white};
   font-family: "Roboto", sans sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: ${({ size }: IButtonProps) =>
+    size === "sm" ? "14px" : size === "md" ? "16px" : "18px"};
   &:hover {
     background-color: ${({ outlined }: IButtonProps) =>
       outlined ? colors.green : colors.black};
     font-weight: 700;
   }
+  text-transform: uppercase;
 `;

@@ -20,16 +20,25 @@ import {
 } from "./styles";
 import Button from "../../components/Button";
 import Time from "../../assets/images/time1.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+
+  async function handleNavigateSignIn() {
+    navigate("/signin");
+  }
+
   return (
     <Box bg={colors.black}>
       <Header>
         <Logo>MTD</Logo>
         <ButtonGroup width="260px">
-          <Button size="sm">SIGN IN</Button>
+          <Button size="sm" onClick={() => handleNavigateSignIn()}>
+            Sign In
+          </Button>
           <Button outlined size="sm">
-            SIGN UP
+            Sign Up
           </Button>
         </ButtonGroup>
       </Header>

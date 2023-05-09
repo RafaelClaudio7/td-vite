@@ -1,14 +1,31 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
-interface IButtonProps {
-  outlined?: boolean;
+export interface IButtonProps {
   size?: "sm" | "md" | "lg";
+  label?: string;
+  outlined?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button = styled.button`
-  padding: ${({ size }: IButtonProps) =>
-    size === "sm" ? "8px 30px" : size === "md" ? "10px 32px" : "12px 36px"};
+export const ButtonStyled = styled.button`
+  height: ${({ size }: IButtonProps) =>
+    size === "sm"
+      ? "40px"
+      : size === "md"
+      ? "45px"
+      : size === "lg"
+      ? "50px"
+      : "40px"};
+  width: ${({ size }: IButtonProps) =>
+    size === "sm"
+      ? "100px"
+      : size === "md"
+      ? "120px"
+      : size === "lg"
+      ? "140px"
+      : "100px"};
+  padding: 5px;
   background-color: ${({ outlined }: IButtonProps) =>
     outlined ? colors.black : colors.green};
   color: ${colors.white};

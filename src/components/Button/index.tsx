@@ -1,3 +1,15 @@
-import { Button } from "./styles";
+import React from "react";
+import { ButtonStyled, IButtonProps } from "./styles";
 
-export default Button;
+export default function Button({
+  label,
+  size,
+  outlined,
+  onClick,
+}: IButtonProps) {
+  return (
+    <ButtonStyled size={size} outlined={outlined} onClick={onClick}>
+      {label}
+    </ButtonStyled>
+  );
+}

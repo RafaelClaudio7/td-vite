@@ -34,12 +34,8 @@ export default function Home() {
       <Header>
         <Logo>MTD</Logo>
         <ButtonGroup width="260px">
-          <Button size="sm" onClick={() => handleNavigateSignIn()}>
-            Sign In
-          </Button>
-          <Button outlined size="sm">
-            Sign Up
-          </Button>
+          <Button size="sm" label="Sign In" onClick={handleNavigateSignIn} />
+          <Button outlined size="sm" label="Sign Up" />
         </ButtonGroup>
       </Header>
       <Main>
@@ -52,11 +48,9 @@ export default function Home() {
             <DescriptionHighlight>productivity</DescriptionHighlight> skills by
             managing your daily tasks with the best to do app.
           </Description>
-          <ButtonGroup width="350px">
-            <Button outlined size="md">
-              Learn More
-            </Button>
-            <Button size="md">Get Started</Button>
+          <ButtonGroup width="260px">
+            <Button outlined size="md" label="Learn More" />
+            <Button size="md" label="Get Started" />
           </ButtonGroup>
         </TextContainer>
         <ImageContainer>

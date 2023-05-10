@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../constants/colors";
 
 export interface IButtonProps {
+  type?: "submit" | "reset" | "button";
   size?: "sm" | "md" | "lg";
   label?: string;
   outlined?: boolean;
@@ -17,15 +18,14 @@ export const ButtonStyled = styled.button`
       : size === "lg"
       ? "50px"
       : "40px"};
-  width: ${({ size }: IButtonProps) =>
+  padding: ${({ size }: IButtonProps) =>
     size === "sm"
-      ? "100px"
+      ? "5px 15px"
       : size === "md"
-      ? "120px"
+      ? "5px 25px"
       : size === "lg"
-      ? "140px"
-      : "100px"};
-  padding: 5px;
+      ? "5px 35px"
+      : "5px 15px"};
   background-color: ${({ outlined }: IButtonProps) =>
     outlined ? colors.black : colors.green};
   color: ${colors.white};

@@ -3,26 +3,25 @@ import { colors } from "../../constants/colors";
 import { Box } from "@chakra-ui/react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import styled from "styled-components";
 import {
   ButtonContainer,
   Container,
   Description,
-  Form,
   FormBottom,
   InputContainer,
-  Label,
   Message,
   MessageLink,
   Title,
   TitleContainer,
 } from "./styles";
+import Label from "../../components/Label";
+import Form from "../../components/Form";
 
 export default function SignIn() {
   return (
     <Box bg={colors.white} h="100vh">
       <Container>
-        <Form action="" method="post">
+        <Form>
           <TitleContainer>
             <Title>LOGIN</Title>
             <Description>Sign in to your account to continue</Description>

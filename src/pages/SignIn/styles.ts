@@ -10,18 +10,6 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Form = styled.form`
-  background-color: ${colors.grey};
-  height: 500px;
-  width: 450px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 1px 1px #636363;
-  padding: 20px 0;
-`;
-
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,19 +38,13 @@ export const InputContainer = styled.div`
   margin-top: 15px;
 `;
 
-export const Label = styled.label`
-  font-family: "Roboto";
-  font-size: 14px;
-  font-weight: 600;
-  color: ${colors.white};
-  margin-bottom: 5px;
-`;
-
 export const FormBottom = styled.div`
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   height: 20%;
+  height: 100px;
+
   width: 80%;
   justify-content: space-between;
   align-items: center;
@@ -80,6 +62,9 @@ export const MessageLink = styled.a`
   font-family: "Roboto";
   color: ${colors.greenLight};
   font-weight: bold;
+  &:hover {
+    color: ${colors.green};
+  }
 `;
 
 export const ButtonContainer = styled.div``;

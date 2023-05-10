@@ -8,11 +8,5 @@ export interface IInputStyles {
 }
 
 export default function Input({ type, placeholder, name }: IInputStyles) {
-  return (
-    <InputStyled
-      type={type}
-      placeholder={placeholder}
-      name={name}
-    ></InputStyled>
-  );
+  return <InputStyled type={type} placeholder={placeholder} name={name} />;
 }

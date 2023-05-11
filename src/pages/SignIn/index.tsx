@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { colors } from "../../constants/colors";
 import { Box } from "@chakra-ui/react";
 import Button from "../../components/Button";
@@ -17,7 +17,21 @@ import {
 import Label from "../../components/Label";
 import Form from "../../components/Form";
 
+interface ISignInData {
+  email: string;
+  password: string;
+}
+
 export default function SignIn() {
+  const [formData, setFormData] = useState<ISignInData>({} as ISignInData);
+  const [emailIsValid, setEmailIsValid] = useState<boolean>(true);
+  const [passwordIsValid, setPasswordIsValid] = useState<boolean>(true);
+
+  function handleValidatePassword(password: string) {
+    if (password.trim().length < 7) setPasswordIsValid(false);
+    else setPasswordIsValid(true);
+  }
+
   return (
     <Box bg={colors.white} h="100vh">
       <Container>
@@ -28,11 +42,28 @@ export default function SignIn() {
           </TitleContainer>
           <InputContainer>
             <Label htmlFor={"email"}>Email:</Label>
-            <Input name="email" type="email" placeholder="user@email.com" />
+            <Input
+              name="email"
+              type="email"
+              placeholder="user@email.com"
+              onChange={(e) => {
+                setFormData({ ...formData, email: e.target.value });
+              }}
+              isValid={emailIsValid}
+            />
           </InputContainer>
           <InputContainer>
             <Label htmlFor={"password"}>Password:</Label>
-            <Input name="email" type="password" placeholder="*********" />
+            <Input
+              name="email"
+              type="password"
+              placeholder="*********"
+              onChange={(e) => {
+                setFormData({ ...formData, password: e.target.value });
+              }}
+              onBlur={(e) => handleValidatePassword(e.target.value)}
+              isValid={passwordIsValid}
+            />
           </InputContainer>
           <FormBottom>
             <ButtonContainer>

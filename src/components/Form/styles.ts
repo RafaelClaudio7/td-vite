@@ -9,5 +9,5 @@ export const FormStyled = styled.form`
   flex-direction: column;
   align-items: center;
   box-shadow: 1px 1px #636363;
-  padding: 20px 0;
+  padding: 30px 0 40px 0;
 `;

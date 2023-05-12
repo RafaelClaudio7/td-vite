@@ -32,6 +32,11 @@ export default function SignIn() {
     else setPasswordIsValid(true);
   }
 
+  function handleValidateEmail(email: string): void {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setEmailIsValid(regex.test(email));
+  }
+
   return (
     <Box bg={colors.white} h="100vh">
       <Container>
@@ -49,6 +54,7 @@ export default function SignIn() {
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
               }}
+              onBlur={(e) => handleValidateEmail(e.target.value)}
               isValid={emailIsValid}
             />
           </InputContainer>

@@ -32,10 +32,31 @@ export default function SignUp() {
   const [formData, setFormData] = useState<ISignUpData>({} as ISignUpData);
   const [firstNameIsValid, setFirstNameIsValid] = useState<boolean>(true);
   const [lastNameIsValid, setLastNameIsValid] = useState<boolean>(true);
-  const [emailIsValid, setEmailNameIsValid] = useState<boolean>(true);
+  const [emailIsValid, setEmailIsValid] = useState<boolean>(true);
   const [passwordIsValid, setPasswordIsValid] = useState<boolean>(true);
   const [confirmPasswordIsValid, setConfirmPasswordIsValid] =
     useState<boolean>(true);
+
+  function handleValidateName(name: string) {
+    if (name.trim().length <= 3) {
+      setFirstNameIsValid(false);
+    }
+  }
+
+  function handleValidateEmail(email: string): void {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setEmailIsValid(regex.test(email));
+  }
+
+  function handleValidatePassword(password: string) {
+    if (password.trim().length < 7) setPasswordIsValid(false);
+    else setPasswordIsValid(true);
+  }
+
+  function handleValidateConfirmPassword(confirmPassword: string) {
+    if (confirmPassword !== formData.password) setConfirmPasswordIsValid(false);
+    else setConfirmPasswordIsValid(true);
+  }
 
   return (
     <Box bg={colors.white} h="100vh">
@@ -54,6 +75,7 @@ export default function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, firstName: e.target.value })
               }
+              onBlur={(e) => handleValidateName(e.target.value)}
               isValid={firstNameIsValid}
             />
           </InputContainer>
@@ -78,6 +100,7 @@ export default function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
+              onBlur={(e) => handleValidateEmail(e.target.value)}
               isValid={emailIsValid}
             />
           </InputContainer>
@@ -90,6 +113,7 @@ export default function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })
               }
+              onBlur={(e) => handleValidatePassword(e.target.value)}
               isValid={passwordIsValid}
             />
           </InputContainer>
@@ -102,6 +126,7 @@ export default function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, confirmPassword: e.target.value })
               }
+              onBlur={(e) => handleValidateConfirmPassword(e.target.value)}
               isValid={confirmPasswordIsValid}
             />
           </InputContainer>
@@ -110,15 +135,19 @@ export default function SignUp() {
               <Button label="Sign Up" size="sm" type="submit" />
             </ButtonContainer>
             <BottomContent>
+              <div>
+                <a href="/" title="Voltar">
+                  <ChevronLeftIcon
+                    boxSize={6}
+                    color={colors.white}
+                    _hover={{ color: colors.green }}
+                  />
+                </a>
+              </div>
               <Message>
                 Do you have a account?{" "}
                 <MessageLink href="/signin">Sign In</MessageLink>{" "}
               </Message>
-              <div>
-                <a href="/" title="Voltar">
-                  <ChevronLeftIcon boxSize={8} color={colors.white} />
-                </a>
-              </div>
             </BottomContent>
           </FormBottom>
         </Form>

@@ -78,15 +78,19 @@ export default function SignIn() {
               <Button label="Sign In" size="sm" type="submit" />
             </ButtonContainer>
             <BottomContent>
+              <div>
+                <a href="/" title="Voltar">
+                  <ChevronLeftIcon
+                    boxSize={6}
+                    color={colors.white}
+                    _hover={{ color: colors.green }}
+                  />
+                </a>
+              </div>
               <Message>
                 Don't have an account?{" "}
                 <MessageLink href="/signup">Create account</MessageLink>{" "}
               </Message>
-              <div>
-                <a href="/" title="Voltar">
-                  <ChevronLeftIcon boxSize={8} color={colors.white} />
-                </a>
-              </div>
             </BottomContent>
           </FormBottom>
         </Form>

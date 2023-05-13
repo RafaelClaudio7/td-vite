@@ -51,7 +51,6 @@ export const FormBottom = styled.div`
 
 export const BottomContent = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
 `;
@@ -60,6 +59,7 @@ export const Message = styled.p`
   font-size: 12px;
   font-family: "Roboto";
   color: ${colors.white};
+  margin-left: 20px;
 `;
 
 export const MessageLink = styled.a`

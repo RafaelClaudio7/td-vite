@@ -19,6 +19,9 @@ import {
   TitleContainer,
 } from "../SignIn/styles";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
+import { validateEmail } from "../../utils/validateEmail";
+import { validateName } from "../../utils/validateName";
+import { validatePassword } from "../../utils/validatePassword";
 
 interface ISignUpData {
   firstName: string;
@@ -36,22 +39,6 @@ export default function SignUp() {
   const [passwordIsValid, setPasswordIsValid] = useState<boolean>(true);
   const [confirmPasswordIsValid, setConfirmPasswordIsValid] =
     useState<boolean>(true);
-
-  function handleValidateName(name: string) {
-    if (name.trim().length <= 3) {
-      setFirstNameIsValid(false);
-    }
-  }
-
-  function handleValidateEmail(email: string): void {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setEmailIsValid(regex.test(email));
-  }
-
-  function handleValidatePassword(password: string) {
-    if (password.trim().length < 7) setPasswordIsValid(false);
-    else setPasswordIsValid(true);
-  }
 
   function handleValidateConfirmPassword(confirmPassword: string) {
     if (confirmPassword !== formData.password) setConfirmPasswordIsValid(false);
@@ -75,7 +62,7 @@ export default function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, firstName: e.target.value })
               }
-              onBlur={(e) => handleValidateName(e.target.value)}
+              onBlur={(e) => setFirstNameIsValid(validateName(e.target.value))}
               isValid={firstNameIsValid}
             />
           </InputContainer>
@@ -88,6 +75,7 @@ export default function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, lastName: e.target.value })
               }
+              onBlur={(e) => setLastNameIsValid(validateName(e.target.value))}
               isValid={lastNameIsValid}
             />
           </InputContainer>
@@ -100,7 +88,7 @@ export default function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
-              onBlur={(e) => handleValidateEmail(e.target.value)}
+              onBlur={(e) => setEmailIsValid(validateEmail(e.target.value))}
               isValid={emailIsValid}
             />
           </InputContainer>
@@ -113,7 +101,9 @@ export default function SignUp() {
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })
               }
-              onBlur={(e) => handleValidatePassword(e.target.value)}
+              onBlur={(e) =>
+                setPasswordIsValid(validatePassword(e.target.value))
+              }
               isValid={passwordIsValid}
             />
           </InputContainer>

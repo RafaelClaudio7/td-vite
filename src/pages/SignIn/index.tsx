@@ -18,6 +18,8 @@ import {
 } from "./styles";
 import Label from "../../components/Label";
 import Form from "../../components/Form";
+import { validateEmail } from "../../utils/validateEmail";
+import { validatePassword } from "../../utils/validatePassword";
 
 interface ISignInData {
   email: string;
@@ -28,16 +30,6 @@ export default function SignIn() {
   const [formData, setFormData] = useState<ISignInData>({} as ISignInData);
   const [emailIsValid, setEmailIsValid] = useState<boolean>(true);
   const [passwordIsValid, setPasswordIsValid] = useState<boolean>(true);
-
-  function handleValidatePassword(password: string) {
-    if (password.trim().length < 7) setPasswordIsValid(false);
-    else setPasswordIsValid(true);
-  }
-
-  function handleValidateEmail(email: string): void {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setEmailIsValid(regex.test(email));
-  }
 
   return (
     <Box bg={colors.white} h="100vh">
@@ -56,7 +48,7 @@ export default function SignIn() {
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
               }}
-              onBlur={(e) => handleValidateEmail(e.target.value)}
+              onBlur={(e) => setEmailIsValid(validateEmail(e.target.value))}
               isValid={emailIsValid}
             />
           </InputContainer>
@@ -69,7 +61,9 @@ export default function SignIn() {
               onChange={(e) => {
                 setFormData({ ...formData, password: e.target.value });
               }}
-              onBlur={(e) => handleValidatePassword(e.target.value)}
+              onBlur={(e) =>
+                setPasswordIsValid(validatePassword(e.target.value))
+              }
               isValid={passwordIsValid}
             />
           </InputContainer>

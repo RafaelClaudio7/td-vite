@@ -7,6 +7,7 @@ import Label from "../../components/Label";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import {
+  BottomContent,
   ButtonContainer,
   Container,
   Description,
@@ -17,6 +18,7 @@ import {
   Title,
   TitleContainer,
 } from "../SignIn/styles";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
 
 interface ISignUpData {
   firstName: string;
@@ -107,10 +109,17 @@ export default function SignUp() {
             <ButtonContainer>
               <Button label="Sign Up" size="sm" type="submit" />
             </ButtonContainer>
-            <Message>
-              Do you have a account?{" "}
-              <MessageLink href="/signin">Sign In</MessageLink>{" "}
-            </Message>
+            <BottomContent>
+              <Message>
+                Do you have a account?{" "}
+                <MessageLink href="/signin">Sign In</MessageLink>{" "}
+              </Message>
+              <div>
+                <a href="/" title="Voltar">
+                  <ChevronLeftIcon boxSize={8} color={colors.white} />
+                </a>
+              </div>
+            </BottomContent>
           </FormBottom>
         </Form>
       </Container>

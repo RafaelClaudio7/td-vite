@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import { colors } from "../../constants/colors";
 import {
@@ -29,13 +29,30 @@ export default function Home() {
     navigate("/signin");
   }
 
+  async function handleNavigateSignUp() {
+    navigate("/signup");
+  }
+
+  useEffect(() => {
+    console.log("ComponentDidMount");
+
+    return () => {
+      console.log("Cleanup");
+    };
+  }, []);
+
   return (
     <Box bg={colors.black}>
       <Header>
         <Logo>MTD</Logo>
         <ButtonGroup width="205px">
           <Button size="sm" label="Sign In" onClick={handleNavigateSignIn} />
-          <Button outlined size="sm" label="Sign Up" />
+          <Button
+            outlined
+            size="sm"
+            label="Sign Up"
+            onClick={handleNavigateSignUp}
+          />
         </ButtonGroup>
       </Header>
       <Main>

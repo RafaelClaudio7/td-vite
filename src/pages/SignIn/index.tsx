@@ -3,7 +3,9 @@ import { colors } from "../../constants/colors";
 import { Box } from "@chakra-ui/react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
 import {
+  BottomContent,
   ButtonContainer,
   Container,
   Description,
@@ -75,10 +77,17 @@ export default function SignIn() {
             <ButtonContainer>
               <Button label="Sign In" size="sm" type="submit" />
             </ButtonContainer>
-            <Message>
-              Don't have an account?{" "}
-              <MessageLink href="/signup">Create account</MessageLink>{" "}
-            </Message>
+            <BottomContent>
+              <Message>
+                Don't have an account?{" "}
+                <MessageLink href="/signup">Create account</MessageLink>{" "}
+              </Message>
+              <div>
+                <a href="/" title="Voltar">
+                  <ChevronLeftIcon boxSize={8} color={colors.white} />
+                </a>
+              </div>
+            </BottomContent>
           </FormBottom>
         </Form>
       </Container>

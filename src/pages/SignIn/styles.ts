@@ -44,17 +44,22 @@ export const FormBottom = styled.div`
   flex-direction: column;
   height: 20%;
   height: 100px;
-
   width: 80%;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const BottomContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 `;
 
 export const Message = styled.p`
   font-size: 12px;
   font-family: "Roboto";
   color: ${colors.white};
-  align-self: flex-start;
 `;
 
 export const MessageLink = styled.a`

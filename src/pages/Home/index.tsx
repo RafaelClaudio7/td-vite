@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Icon } from "@chakra-ui/react";
 import { colors } from "../../constants/colors";
 import {
   ButtonGroup,
@@ -14,6 +14,7 @@ import {
   ImageTime,
   Logo,
   Main,
+  Menu,
   TextContainer,
   Title,
   TitleHighlight,
@@ -21,6 +22,7 @@ import {
 import Button from "../../components/Button";
 import Time from "../../assets/images/time1.png";
 import { useNavigate } from "react-router-dom";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -54,6 +56,9 @@ export default function Home() {
             onClick={handleNavigateSignUp}
           />
         </ButtonGroup>
+        <Menu>
+          <HamburgerIcon color={colors.white} boxSize={6} />
+        </Menu>
       </Header>
       <Main>
         <TextContainer>

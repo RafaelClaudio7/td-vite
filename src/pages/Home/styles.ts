@@ -25,6 +25,15 @@ export const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
   margin-right: 120px;
+  @media (max-width: 768px) {
+    margin-right: 60px;
+  }
+  @media (max-width: 590px) {
+    margin-right: 20px;
+  }
+  @media (max-width: 470px) {
+    display: none;
+  }
 `;
 
 export const Main = styled.main`
@@ -42,6 +51,12 @@ export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  @media (max-width: 768px) {
+    height: 400px;
+  }
+  @media (max-width: 470px) {
+    height: 250px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -49,6 +64,16 @@ export const Title = styled.h1`
   font-family: "Roboto", sans-serif;
   color: ${colors.white};
   font-weight: 700;
+  @media (max-width: 768px) {
+    font-size: 26px;
+    text-align: left;
+  }
+  @media (max-width: 590px) {
+    font-size: 22px;
+  }
+  @media (max-width: 470px) {
+    font-size: 18px;
+  }
 `;
 
 export const TitleHighlight = styled.span`
@@ -60,6 +85,15 @@ export const Description = styled.p`
   font-size: 24px;
   color: ${colors.white};
   font-weight: 400;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media (max-width: 590px) {
+    font-size: 16px;
+  }
+  @media (max-width: 470px) {
+    font-size: 14px;
+  }
 `;
 
 export const DescriptionHighlight = styled.span`
@@ -72,6 +106,14 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    height: 400px;
+    width: 400px;
+  }
+  @media (max-width: 590px) {
+    height: 300px;
+    width: 300px;
+  }
 `;
 
 export const ImageRoundedBackground = styled.div`
@@ -87,9 +129,26 @@ export const ImageRoundedBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    height: 400px;
+    width: 400px;
+  }
+  @media (max-width: 590px) {
+    height: 300px;
+    width: 300px;
+  }
 `;
 
-export const ImageTime = styled.img``;
+export const ImageTime = styled.img`
+  @media (max-width: 768px) {
+    height: 400px;
+    width: 400px;
+  }
+  @media (max-width: 590px) {
+    height: 300px;
+    width: 300px;
+  }
+`;
 
 export const Footer = styled.footer`
   min-height: 10vh;
@@ -102,9 +161,20 @@ export const Copyright = styled.span`
   font-size: 16px;
   font-family: "Roboto";
   color: ${colors.white};
+  @media (max-width: 470px) {
+    font-size: 12px;
+  }
 `;
 
 export const CopyrightHighlight = styled.a`
   color: ${colors.green};
   font-weight: 600;
+`;
+
+export const Menu = styled.div`
+  display: none;
+  @media (max-width: 470px) {
+    display: block;
+    margin-right: 40px;
+  }
 `;

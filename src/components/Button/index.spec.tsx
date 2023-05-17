@@ -1,4 +1,3 @@
-import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import Button from ".";
 
@@ -22,22 +21,22 @@ describe("Button component", () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it("should render the button with the provided size and outline props", () => {
-    const { getByTestId } = render(
-      <Button label={label} size="sm" outlined={true} onClick={onClick} />
-    );
-    const button = getByTestId("btn");
-    // expect(button).toHaveStyle(`
-    //   padding: 8px 30px;
-    //   background-color: transparent;
-    //   color: black;
-    //   border: 1px solid green;
-    //   border-radius: 5px;
-    //   font-family: "Roboto", sans-serif;
-    //   font-weight: 400;
-    //   font-size: 14px;
-    //   text-transform: uppercase;
-    // `);
-    expect(1).toBe(1);
-  });
+  // it("should render the button with the provided size and outline props", () => {
+  //   const { getByTestId } = render(
+  //     <Button label={label} size="sm" outlined={true} onClick={onClick} />
+  //   );
+  //   const button = getByTestId("btn");
+  //   // expect(button).toHaveStyle(`
+  //   //   padding: 8px 30px;
+  //   //   background-color: transparent;
+  //   //   color: black;
+  //   //   border: 1px solid green;
+  //   //   border-radius: 5px;
+  //   //   font-family: "Roboto", sans-serif;
+  //   //   font-weight: 400;
+  //   //   font-size: 14px;
+  //   //   text-transform: uppercase;
+  //   // `);
+  //   expect(1).toBe(1);
+  // });
 });

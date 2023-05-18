@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Box, Icon } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box } from "@chakra-ui/react";
 import { colors } from "../../constants/colors";
 import {
   ButtonGroup,
@@ -15,6 +15,11 @@ import {
   Logo,
   Main,
   Menu,
+  NavLink,
+  NavLinkContainer,
+  ResponsiveOverlay,
+  SideBar,
+  SideBarContainer,
   TextContainer,
   Title,
   TitleHighlight,
@@ -22,10 +27,11 @@ import {
 import Button from "../../components/Button";
 import Time from "../../assets/images/time1.png";
 import { useNavigate } from "react-router-dom";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 export default function Home() {
   const navigate = useNavigate();
+  const [menuIsEnable, setMenuIsEnable] = useState<boolean>(false);
 
   async function handleNavigateSignIn() {
     navigate("/signin");
@@ -34,14 +40,6 @@ export default function Home() {
   async function handleNavigateSignUp() {
     navigate("/signup");
   }
-
-  useEffect(() => {
-    console.log("ComponentDidMount");
-
-    return () => {
-      console.log("Cleanup");
-    };
-  }, []);
 
   return (
     <Box bg={colors.black}>
@@ -57,8 +55,41 @@ export default function Home() {
           />
         </ButtonGroup>
         <Menu>
-          <HamburgerIcon color={colors.white} boxSize={6} />
+          {!menuIsEnable ? (
+            <HamburgerIcon
+              color={colors.white}
+              boxSize={6}
+              onClick={() => setMenuIsEnable((prev) => !prev)}
+            />
+          ) : (
+            <CloseIcon
+              color={colors.white}
+              boxSize={4}
+              onClick={() => setMenuIsEnable((prev) => !prev)}
+            />
+          )}
         </Menu>
+        {menuIsEnable && (
+          <ResponsiveOverlay>
+            <Header />
+            <SideBarContainer>
+              <SideBar>
+                <NavLinkContainer>
+                  <NavLink href="/signin">Sign In</NavLink>
+                </NavLinkContainer>
+                <NavLinkContainer>
+                  <NavLink href="/signup">Sign Up</NavLink>
+                </NavLinkContainer>
+                <NavLinkContainer>
+                  <NavLink href="/learn">Learn More</NavLink>
+                </NavLinkContainer>
+                <NavLinkContainer>
+                  <NavLink href="/get-started">Get Started</NavLink>
+                </NavLinkContainer>
+              </SideBar>
+            </SideBarContainer>
+          </ResponsiveOverlay>
+        )}
       </Header>
       <Main>
         <TextContainer>

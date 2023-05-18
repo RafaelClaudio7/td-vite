@@ -15,4 +15,10 @@ export const InputStyled = styled.input`
   &:focus {
     border: solid 0.5px ${colors.greenLight};
   }
+  @media (max-width: 590px) {
+    width: 300px;
+  }
+  @media (max-width: 470px) {
+    width: 250px;
+  }
 `;

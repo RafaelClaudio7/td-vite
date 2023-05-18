@@ -23,6 +23,9 @@ export const Title = styled.h6`
   font-size: 20px;
   font-family: "Roboto";
   text-align: center;
+  @media (max-width: 470px) {
+    font-size: 18px;
+  }
 `;
 
 export const Description = styled.p`
@@ -30,6 +33,9 @@ export const Description = styled.p`
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 300;
+  @media (max-width: 470px) {
+    font-size: 14px;
+  }
 `;
 
 export const InputContainer = styled.div`

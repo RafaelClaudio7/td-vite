@@ -10,4 +10,10 @@ export const FormStyled = styled.form`
   align-items: center;
   box-shadow: 1px 1px #636363;
   padding: 30px 0 40px 0;
+  @media (max-width: 590px) {
+    width: 350px;
+  }
+  @media (max-width: 470px) {
+    width: 300px;
+  }
 `;

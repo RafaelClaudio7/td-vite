@@ -18,6 +18,7 @@ export const Logo = styled.span`
   font-family: "Inika";
   margin-left: 80px;
   cursor: pointer;
+  z-index: 2;
 `;
 
 export const ButtonGroup = styled.div`
@@ -173,8 +174,41 @@ export const CopyrightHighlight = styled.a`
 
 export const Menu = styled.div`
   display: none;
+  z-index: 2;
   @media (max-width: 470px) {
     display: block;
     margin-right: 40px;
   }
 `;
+
+export const ResponsiveOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+`;
+
+export const SideBarContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const SideBar = styled.aside`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 5px;
+`;
+
+export const NavLinkContainer = styled.div`
+  display: flex;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+  color: ${colors.white};
+`;
+
+export const NavLink = styled.a``;

@@ -41,6 +41,14 @@ export default function Home() {
     navigate("/signup");
   }
 
+  async function handleNavigateLearn() {
+    navigate("/learn");
+  }
+
+  async function handleNavigateGetStarted() {
+    navigate("/get-started");
+  }
+
   return (
     <Box bg={colors.black}>
       <Header>
@@ -102,8 +110,17 @@ export default function Home() {
             managing your daily tasks with the best to do app.
           </Description>
           <ButtonGroup width="350px">
-            <Button outlined size="md" label="Learn More" />
-            <Button size="md" label="Get Started" />
+            <Button
+              outlined
+              size="md"
+              label="Learn More"
+              onClick={handleNavigateLearn}
+            />
+            <Button
+              size="md"
+              label="Get Started"
+              onClick={handleNavigateGetStarted}
+            />
           </ButtonGroup>
         </TextContainer>
         <ImageContainer>

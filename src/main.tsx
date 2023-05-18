@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/NotFound";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

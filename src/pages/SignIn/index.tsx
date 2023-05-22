@@ -20,6 +20,7 @@ import Label from "../../components/Label";
 import Form from "../../components/Form";
 import { validateEmail } from "../../utils/validateEmail";
 import { validatePassword } from "../../utils/validatePassword";
+import { useNavigate } from "react-router-dom";
 
 interface ISignInData {
   email: string;
@@ -30,6 +31,7 @@ export default function SignIn() {
   const [formData, setFormData] = useState<ISignInData>({} as ISignInData);
   const [emailIsValid, setEmailIsValid] = useState<boolean>(true);
   const [passwordIsValid, setPasswordIsValid] = useState<boolean>(true);
+  const navigation = useNavigate();
 
   return (
     <Box bg={colors.white} h="100vh">
@@ -69,7 +71,12 @@ export default function SignIn() {
           </InputContainer>
           <FormBottom>
             <ButtonContainer>
-              <Button label="Sign In" size="sm" type="submit" />
+              <Button
+                label="Sign In"
+                size="sm"
+                type="submit"
+                onClick={() => navigation("/dashboard")}
+              />
             </ButtonContainer>
             <BottomContent>
               <div>

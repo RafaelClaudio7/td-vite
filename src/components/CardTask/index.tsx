@@ -50,7 +50,7 @@ export default function CardTask({ title, completed }: ICardTaskProps) {
             w="100%"
             _hover={{ background: "red.300" }}
           >
-            Excluir
+            Delete
           </Button>
         ) : (
           <Button
@@ -59,7 +59,7 @@ export default function CardTask({ title, completed }: ICardTaskProps) {
             w={"100%"}
             _hover={{ background: "whatsapp.300" }}
           >
-            Completar
+            Complete
           </Button>
         )}
       </CardFooter>

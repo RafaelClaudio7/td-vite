@@ -1,7 +1,9 @@
+import React, { useEffect, useState } from "react";
 import {
   Avatar,
   Box,
   Divider,
+  Flex,
   Grid,
   GridItem,
   Text,
@@ -9,11 +11,11 @@ import {
   WrapItem,
   useToast,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
 import { Header } from "../Home/styles";
 import { colors } from "../../constants/colors";
-import { BellIcon } from "@chakra-ui/icons";
 import axios from "axios";
+import CardTask from "../../components/CardTask";
+import DividerStyled from "../../components/Divider";
 
 interface ITask {
   userId: number;
@@ -23,8 +25,7 @@ interface ITask {
 }
 
 export default function Dashboard() {
-  const [tasks, setTasks] = useState<ITask[]>();
-  // const [isError, setIsError] = useState<boolean>(false);
+  const [tasks, setTasks] = useState<ITask[]>([] as ITask[]);
   const toast = useToast();
 
   useEffect(() => {
@@ -38,7 +39,6 @@ export default function Dashboard() {
         setTasks(response.data);
       })
       .catch((error) => {
-        // setIsError(true);
         toast({
           title: `Erro ao buscar as tarefas`,
           status: "error",
@@ -71,16 +71,83 @@ export default function Dashboard() {
           <Wrap mr={10} cursor={"pointer"}>
             <WrapItem>
               <Avatar name="Rafael Tula" bg={colors.green} />
-              {/* <BellIcon w={5} h={5} color={colors.white} /> */}
             </WrapItem>
           </Wrap>
         </Header>
         <Divider />
       </GridItem>
-      <GridItem pl="2" bg={colors.green} area={"nav"}>
-        Nav
+      <GridItem bg={colors.green} area={"nav"}>
+        <Box
+          w={"100%"}
+          h={16}
+          display={"flex"}
+          alignItems={"center"}
+          cursor={"pointer"}
+          _hover={{ background: colors.greenLight, fontWeight: "bold" }}
+        >
+          <Text ml={4} color={colors.white}>
+            New task
+          </Text>
+        </Box>
+        <DividerStyled />
+        <Box
+          w={"100%"}
+          h={16}
+          display={"flex"}
+          alignItems={"center"}
+          cursor={"pointer"}
+          _hover={{ background: colors.greenLight, fontWeight: "bold" }}
+        >
+          <Text ml={4} color={colors.white}>
+            View group
+          </Text>
+        </Box>
+        <DividerStyled />
+        <Box
+          w={"100%"}
+          h={16}
+          display={"flex"}
+          alignItems={"center"}
+          cursor={"pointer"}
+          _hover={{ background: colors.greenLight, fontWeight: "bold" }}
+        >
+          <Text ml={4} color={colors.white}>
+            Tutorials
+          </Text>
+        </Box>
+        <DividerStyled />
+        <Box
+          w={"100%"}
+          h={16}
+          display={"flex"}
+          alignItems={"center"}
+          cursor={"pointer"}
+          _hover={{ background: colors.greenLight, fontWeight: "bold" }}
+        >
+          <Text ml={4} color={colors.white}>
+            Settings
+          </Text>
+        </Box>
+        <DividerStyled />
       </GridItem>
-      <GridItem pl="2" bg={colors.black} area={"main"}></GridItem>
+      <GridItem bg={colors.black} area={"main"}>
+        <Wrap>
+          <div>
+            <Text fontSize={"3xl"} color={colors.white} ml={8} mt={4}>
+              Tasks
+            </Text>
+          </div>
+          <Flex mt={5} w={"100%"} flexWrap={"wrap"}>
+            {tasks.length > 0 &&
+              tasks.map((task) => {
+                if (task.userId === 1)
+                  return (
+                    <CardTask title={task.title} completed={task.completed} />
+                  );
+              })}
+          </Flex>
+        </Wrap>
+      </GridItem>
       <GridItem pl="2" bg={colors.black} area={"footer"}>
         Footer
       </GridItem>

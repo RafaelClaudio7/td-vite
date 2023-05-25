@@ -53,11 +53,14 @@ export default function Dashboard() {
 
   return (
     <Grid
-      templateAreas={`"header header"
+      templateAreas={[
+        `"header" "nav" "main" "footer"`,
+        `"header header"
                     "nav main"
-                    "nav footer"`}
-      gridTemplateRows={"10vh 1fr 8vh"}
-      gridTemplateColumns={"180px 1fr"}
+                    "nav footer"`,
+      ]}
+      gridTemplateRows={["10vh 1fr 1fr", "10vh 1fr 8vh"]}
+      gridTemplateColumns={["1fr ", "180px 1fr"]}
       height={"100vh"}
     >
       <GridItem bg={colors.black} area={"header"}>
@@ -83,7 +86,7 @@ export default function Dashboard() {
           display={"flex"}
           alignItems={"center"}
           cursor={"pointer"}
-          _hover={{ background: colors.greenLight, fontWeight: "bold" }}
+          _hover={{ background: colors.greenDark, fontWeight: "bold" }}
         >
           <Text ml={4} color={colors.white}>
             New task
@@ -96,7 +99,7 @@ export default function Dashboard() {
           display={"flex"}
           alignItems={"center"}
           cursor={"pointer"}
-          _hover={{ background: colors.greenLight, fontWeight: "bold" }}
+          _hover={{ background: colors.greenDark, fontWeight: "bold" }}
         >
           <Text ml={4} color={colors.white}>
             View group
@@ -109,7 +112,7 @@ export default function Dashboard() {
           display={"flex"}
           alignItems={"center"}
           cursor={"pointer"}
-          _hover={{ background: colors.greenLight, fontWeight: "bold" }}
+          _hover={{ background: colors.greenDark, fontWeight: "bold" }}
         >
           <Text ml={4} color={colors.white}>
             Tutorials
@@ -122,7 +125,7 @@ export default function Dashboard() {
           display={"flex"}
           alignItems={"center"}
           cursor={"pointer"}
-          _hover={{ background: colors.greenLight, fontWeight: "bold" }}
+          _hover={{ background: colors.greenDark, fontWeight: "bold" }}
         >
           <Text ml={4} color={colors.white}>
             Settings
@@ -137,7 +140,12 @@ export default function Dashboard() {
               Tasks
             </Text>
           </div>
-          <Flex mt={5} w={"100%"} flexWrap={"wrap"}>
+          <Flex
+            mt={5}
+            w={"100%"}
+            flexWrap={"wrap"}
+            justifyContent={["center", "flex-start"]}
+          >
             {tasks.length > 0 &&
               tasks.map((task) => {
                 if (task.userId === 1)

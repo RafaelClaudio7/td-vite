@@ -19,7 +19,7 @@ interface ICardTaskProps {
 
 export default function CardTask({ title, completed }: ICardTaskProps) {
   return (
-    <Card w={["200px"]} bg={colors.grey} ml={8} mr={8} mt={8}>
+    <Card w={["200px", "200px", "200px"]} bg={colors.grey} ml={8} mr={8} mt={8}>
       <CardHeader>
         <Heading size="sm" color={colors.white} fontWeight={"regular"}>
           {title}
